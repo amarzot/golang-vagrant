@@ -43,7 +43,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder ".", "/vagrant"
+  config.vm.synced_folder ENV['GOPATH'], "/home/vagrant/go"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -71,6 +71,5 @@ Vagrant.configure("2") do |config|
     source /home/vagrant/.gvm/scripts/gvm
     gvm install go1.11.1 -B
     gvm use go1.11.1 --default
-    go version
   SHELL
 end
